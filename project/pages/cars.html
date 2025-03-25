@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Velox Custom - Cars</title>
+        <link rel="icon" href="../assets/img/logo.png" type="image/png">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/cars.css">
+        <script src="https://kit.fontawesome.com/2c803d08b8.js" crossorigin="anonymous"></script>
+        <script src="../js/translation.js" defer></script>
+        <script src="../js/script.js" defer></script>
+        <script src="../js/cars.js"></script>
+    </head>
+    <body>
+        <nav id="nav">
+            <div id="nav-close" class="nav-toggle" onclick="toggleNav()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div id="nav-items">
+                <a href="../index.html" t-id="nav-home" class="nav-item">Home</a>
+                <a href="cars.html" t-id="nav-cars" class="nav-item">Cars</a>
+            </div>
+        </nav>
+        <header>
+            <div id="nav-open" class="nav-toggle" onclick="toggleNav()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <h1 t-id="cars-headline" id="headline-title">Our Cars</h1>
+            <label for="lang-select"></label>
+            <select id="lang-select">
+                <option value="en">English</option>
+            </select>
+        </header>
+        <main>
+            <div id="manufactureList">
+                <div class="manufacture" id="manufacture-1" onclick="toggleManufactureDropdown(this)">
+                    <div class="manufacture-headline" id="manufacture-1-headline">
+                        <h2 class="manufacture-name" id="manufacture-1-name">BMW</h2>
+                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
+                    </div>
+                    <div class="manufacture-cars" id="manufacture-1-cars">
+                        <div class="manufacture-car" id="manufacture-1-car-1" onclick="window.location.href='car.html'">
+                            <img src="../assets/img/bmw_m5_cs.png" alt="Car 1" class="manufacture-car-image">
+                            <h2 class="manufacture-car-name" id="manufacture-1-car-1-name">BMW M5 CS</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="manufacture" id="manufacture-2" onclick="toggleManufactureDropdown(this)">
+                    <div class="manufacture-headline" id="manufacture-2-headline">
+                        <h2 class="manufacture-name" id="manufacture-2-name">Lamborghini</h2>
+                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
+                    </div>
+                </div>
+                <div class="manufacture" id="manufacture-3" onclick="toggleManufactureDropdown(this)">
+                    <div class="manufacture-headline" id="manufacture-3-headline">
+                        <h2 class="manufacture-name" id="manufacture-3-name">Lexus</h2>
+                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
+                    </div>
+                    <div class="manufacture-cars" id="manufacture-2-cars">
+                        <div class="manufacture-car" id="manufacture-2-car-1" onclick="window.location.href='car.html'">
+                            <img src="../assets/img/lexus_is.png" alt="Car 1" class="manufacture-car-image">
+                            <h2 class="manufacture-car-name" id="manufacture-2-car-1-name">Lexus IS</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="manufacture" id="manufacture-4" onclick="toggleManufactureDropdown(this);">
+                    <div class="manufacture-headline" id="manufacture-4-headline">
+                        <h2 class="manufacture-name" id="manufacture-4-name">Porsche</h2>
+                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
+                    </div>
+                    <div class="manufacture-cars" id="manufacture-3-cars">
+                        <div class="manufacture-car" id="manufacture-3-car-1" onclick="window.location.href='car.html'">
+                            <img src="../assets/img/porsche_gt3.png" alt="Car 1" class="manufacture-car-image">
+                            <h2 class="manufacture-car-name" id="manufacture-3-car-1-name">Porsche GT3</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

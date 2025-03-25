@@ -1,0 +1,165 @@
+:root {
+    --background-color: #FFFFFF;
+    --primary-color: #000000;
+    --accent-color: #B330FF;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Inter, sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+
+}
+
+nav {
+    z-index: 10000;
+    background-color: var(--primary-color);
+    color: white;
+    width: 35vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -35vw;
+    transition: left 0.5s;
+    display: none;
+}
+
+.nav-toggle {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+#nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* on nav-close:hover add text-shadow to icons in it */
+.nav-toggle:hover i {
+    text-shadow: 0 0 5px var(--background-color);
+}
+
+#nav-items {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 5rem);
+    margin-top: 5rem;
+    padding-left: 2rem;
+}
+
+#nav-items a {
+    color: var(--background-color);
+    text-decoration: none;
+    font-size: 3.5vw;
+    font-weight: bold;
+    width: fit-content;
+}
+
+#nav-items a:hover {
+    text-shadow: 0 0 5px var(--background-color);
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+#nav-open {
+    position: absolute;
+    left: 1rem;
+}
+
+
+#headline-title {
+    color: var(--primary-color);
+    font-size: 5vh;
+    font-weight: bold;
+    width: 100vw;
+    text-align: center;
+    margin: 0;
+    cursor: default;
+
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+main {
+    flex-grow: 1;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.popular-car {
+    width: 30vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+
+    border-left: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+    padding: 1rem;
+    margin: 1rem;
+    transition: border 0.5s;
+}
+
+.popular-car:hover {
+    border-left: 2px solid var(--accent-color);
+    border-right: 2px solid var(--accent-color);
+}
+
+.popular-car-image {
+    width: 100%;
+    background: #D9D9D9;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.popular-car-name {
+    font-size: 3vh;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+#lang-select {
+    position: absolute;
+    right: 1rem;
+}

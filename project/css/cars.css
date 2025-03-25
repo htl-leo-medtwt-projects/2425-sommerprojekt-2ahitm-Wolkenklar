@@ -1,0 +1,100 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 3vh;
+}
+
+#manufactureList {
+    width: calc(100% - 4vw * 2);
+    margin: 0 4vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.manufacture {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.manufacture-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transition: border 0.5s;
+}
+
+.manufacture-headline:hover {
+    border-top: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.manufacture-name {
+    font-size: 20px;
+}
+
+.manufacture-dropdown-icon {
+    font-size: 20px;
+    transform: rotateZ(0deg);
+    transition: transform 0.5s, color 0.5s;
+}
+
+.manufacture-headline:hover .manufacture-dropdown-icon {
+    color: var(--accent-color);
+}
+
+.manufacture-headline:hover .manufacture-dropdown-icon {
+    transform: rotateZ(90deg);
+}
+
+
+/* per default only cars image shown, on hover also show name*/
+.manufacture-cars {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.manufacture-car {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+
+    margin: 1rem;
+    transition: border 0.5s;
+}
+
+.manufacture-car-image {
+    width: 100%;
+    background: #D9D9D9;
+    object-fit: cover;
+    border-radius: 1rem;
+    z-index: 10;
+}
+
+.manufacture-car-name {
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+
+    overflow: hidden;
+    width: 0;
+    left: -25rem;
+    position: relative;
+    transition: left 0.5s;
+    z-index: 9;
+}
