@@ -27,3 +27,6 @@
 
 ## Mandatory goals until the next sprint
 - Rework all HTML files to use tailwindcss (most of Sprint #1 was used to learn about tailwindcss and how to use it, but there wasn't enough time to use it properly)
+- Load cars and manufactures dynamically
+- Setup ThreeJS
+- Add first concept cars 
