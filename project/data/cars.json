@@ -1,0 +1,43 @@
+[
+  {
+    "label": "BMW",
+    "id": 1,
+    "models": [
+      {
+        "id": 1,
+        "label": "BMW M5 CS",
+        "year": 2021,
+        "price": 142000
+      }
+    ]
+  },
+  {
+    "label": "Lamborghini",
+    "id": 2,
+    "models": []
+  },
+  {
+    "label": "Lexus",
+    "id": 3,
+    "models": [
+      {
+        "id": 2,
+        "label": "Lexus IS",
+        "year": 2021,
+        "price": 40000
+      }
+    ]
+  },
+  {
+    "label": "Porsche",
+    "id": 4,
+    "models": [
+      {
+        "id": 3,
+        "label": "Porsche 911 GT3",
+        "year": 2022,
+        "price": 161000
+      }
+    ]
+  }
+]

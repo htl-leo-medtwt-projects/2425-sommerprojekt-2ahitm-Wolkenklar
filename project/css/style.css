@@ -23,10 +23,6 @@ html {
     flex-direction: column;
 }
 
-main {
-
-}
-
 nav {
     z-index: 10000;
     background-color: var(--primary-color);
