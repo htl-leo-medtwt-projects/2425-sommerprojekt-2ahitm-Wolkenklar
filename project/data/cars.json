@@ -36,7 +36,8 @@
         "id": 3,
         "label": "Porsche 911 GT3",
         "year": 2022,
-        "price": 161000
+        "price": 161000,
+        "glbUrl": "../assets/models/porsche_911.glb"
       }
     ]
   }

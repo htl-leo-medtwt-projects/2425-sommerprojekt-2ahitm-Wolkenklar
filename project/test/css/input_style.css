@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: "velox_light" --default, "velox_dark";
+    root: ":root";
+    logs: true;
+}
+
+
+@plugin "daisyui/theme" {
+    name: velox_light;
+    default: true;
+    prefersdark: false;
+    color-scheme: velox_light;
+    --color-base-100: oklch(100% 0 0);
+    --color-base-200: oklch(98% 0 0);
+    --color-base-300: oklch(95% 0 0);
+    --color-base-content: oklch(25.33% 0.016 252.42);
+    --color-primary: oklch(45% 0.24 277.023);
+    --color-primary-content: oklch(93% 0.034 272.788);
+    --color-secondary: oklch(65% 0.241 354.308);
+    --color-secondary-content: oklch(94% 0.028 342.258);
+    --color-accent: oklch(71% 0.203 305.504);
+    --color-accent-content: oklch(12% 0.042 264.695);
+    --color-neutral: oklch(14% 0.005 285.823);
+    --color-neutral-content: oklch(100% 0 0);
+    --color-info: oklch(62% 0.214 259.815);
+    --color-info-content: oklch(100% 0 0);
+    --color-success: oklch(70% 0.14 182.503);
+    --color-success-content: oklch(12% 0.042 264.695);
+    --color-warning: oklch(79% 0.184 86.047);
+    --color-warning-content: oklch(12% 0.042 264.695);
+    --color-error: oklch(57% 0.245 27.325);
+    --color-error-content: oklch(100% 0 0);
+    --radius-selector: 2rem;
+    --radius-field: 0.25rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+    name: velox_dark;
+    default: false;
+    prefersdark: false;
+    color-scheme: velox_dark;
+    --color-base-100: oklch(25.33% 0.016 252.42);
+    --color-base-200: oklch(23.26% 0.014 253.1);
+    --color-base-300: oklch(21.15% 0.012 254.09);
+    --color-base-content: oklch(97.807% 0.029 256.847);
+    --color-primary: oklch(58% 0.233 277.117);
+    --color-primary-content: oklch(96% 0.018 272.314);
+    --color-secondary: oklch(65% 0.241 354.308);
+    --color-secondary-content: oklch(94% 0.028 342.258);
+    --color-accent: oklch(71% 0.203 305.504);
+    --color-accent-content: oklch(12% 0.042 264.695);
+    --color-neutral: oklch(14% 0.005 285.823);
+    --color-neutral-content: oklch(92% 0.004 286.32);
+    --color-info: oklch(62% 0.214 259.815);
+    --color-info-content: oklch(100% 0 0);
+    --color-success: oklch(70% 0.14 182.503);
+    --color-success-content: oklch(12% 0.042 264.695);
+    --color-warning: oklch(79% 0.184 86.047);
+    --color-warning-content: oklch(12% 0.042 264.695);
+    --color-error: oklch(57% 0.245 27.325);
+    --color-error-content: oklch(100% 0 0);
+    --radius-selector: 2rem;
+    --radius-field: 0.25rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Inter, sans-serif;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    z-index: 10000;
+    background-color: var(--color-base-200);
+    color: var(--color-base-content);
+    width: 35vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -35vw;
+
+    transition: left 0.5s;
+}
+
+/* like a border just on the right side */
+
+nav::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 10px;
+    height: 100%;
+    /* background using a linear gradient: first 10px transparent - color-accent the rest just color-accent*/
+    background: linear-gradient(90deg, transparent 0%, var(--color-accent) 66%, var(--color-accent) 100%);
+    transform: translateX(-100%);
+}
+
+
+.nav-toggle {
+    background: var(--color-base-content);
+    color: var(--color-base-100);
+    border: none;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    left: 1rem;
+
+    box-shadow: 0 0 5px var(--color-base-content);
+    transition: color 0.25s;
+}
+
+.nav-toggle:hover {
+    color: var(--color-accent);
+}
+
+.nav-toggle:hover i {
+    text-shadow: 0 0 5px var(--color-accent);
+}
+
+#nav-close {
+    top: 1rem;
+}
+
+#nav-items {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 5rem);
+    margin-top: 5rem;
+    padding-left: 2rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-size: 3.5vw;
+    font-weight: bold;
+    width: fit-content;
+    color: var(--color-base-content);
+}
+
+.nav-item:hover {
+    text-shadow: 0 0 5px var(--color-base-content);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+#headline-title {
+    color: var(--color-base-content);
+    font-size: 5vh;
+    font-weight: bold;
+    width: 100vw;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    line-height: initial;
+
+    text-shadow: 0 0 5px var(--color-base-content);
+}
+
+#header-settings {
+    position: absolute;
+    right: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    flex-grow: 1;
+    overflow: auto;
+
+    display: flex;
+    height: 100%;
+}
+
+.popular-car {
+    width: 30vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+
+    border-left: 2px solid var(--color-base-content);
+    border-right: 2px solid var(--color-base-content);
+    padding: 1rem;
+    margin: 1rem;
+    transition: border 0.5s;
+}
+
+.popular-car:hover {
+    border-left: 2px solid var(--color-accent);
+    border-right: 2px solid var(--color-accent);
+}
+
+.popular-car-image {
+    width: 100%;
+    background: #D9D9D9;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.popular-car-name {
+    font-size: 3vh;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}

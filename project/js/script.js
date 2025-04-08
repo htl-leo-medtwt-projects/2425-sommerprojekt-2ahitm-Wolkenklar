@@ -9,16 +9,20 @@ function init() {
 function toggleNav(toggle) {
     let nav = document.getElementById("nav");
 
-    if (toggle === true || (toggle === undefined && (nav.style.display === "none" || nav.style.display === ""))) {
-        nav.style.display = "block";
-        setTimeout(() => {
-            nav.style.left = "0px";
-        }, 10);
+    if (toggle === true || (toggle === undefined && (nav.style.left === "-35vw" || nav.style.left === ""))) {
+        // nav.style.display = "block";
+        // setTimeout(() => {
+        //     if(nav.style.display === "block") {
+                nav.style.left = "0px";
+        //     }
+        // }, 10);
     } else {
         nav.style.left = "-35vw";
-        setTimeout(() => {
-            nav.style.display = "none";
-        }, 500);
+        // setTimeout(() => {
+        //     if(nav.style.left === "-35vw") {
+        //         nav.style.display = "none";
+        //     }
+        // }, 500);
     }
 }
 

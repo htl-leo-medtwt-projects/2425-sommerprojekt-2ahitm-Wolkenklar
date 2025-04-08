@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: "velox_light" --default, "velox_dark";
+    root: ":root";
+    logs: true;
+}

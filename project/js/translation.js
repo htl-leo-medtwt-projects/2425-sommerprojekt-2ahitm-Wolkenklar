@@ -18,12 +18,14 @@ const translations = {
         "nav-cars": "Autos",
         "nav-imprint": "Impressum",
         "cars-headline": "Unser Katalog",
+        "configurator-title": "Konfigurator",
     },
     "en": {
         "nav-home": "Home",
         "nav-cars": "Cars",
         "nav-imprint": "Imprint",
         "cars-headline": "Our Catalog",
+        "configurator-title": "Configurator",
     }
 }
 

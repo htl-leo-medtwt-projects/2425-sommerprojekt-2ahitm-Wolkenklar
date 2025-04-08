@@ -1,12 +1,16 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.1",
-    "tailwindcss": "^4.1.1"
+    "@tailwindcss/cli": "^4.1.2",
+    "tailwindcss": "^4.1.2",
+    "three": "^0.175.0"
   },
   "devDependencies": {
     "daisyui": "^5.0.11"
   },
   "scripts": {
-    "build:css": "npx @tailwindcss/cli -i css/input.css -o ./css/output.css"
+    "build:css": "npm run build:css:style && npm run build:css:cars && npm run build:css:configurator",
+    "build:css:style": "npx @tailwindcss/cli -i css/input_style.css -o ./css/style.css",
+    "build:css:cars": "npx @tailwindcss/cli -i css/input_cars.css -o ./css/cars.css",
+    "build:css:configurator": "npx @tailwindcss/cli -i css/input_configurator.css -o ./css/configurator.css"
   }
 }
