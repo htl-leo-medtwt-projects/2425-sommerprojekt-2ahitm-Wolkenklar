@@ -132,8 +132,6 @@ nav::after {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    position: absolute;
-    left: 1rem;
 
     box-shadow: 0 0 5px var(--color-base-content);
     transition: color 0.25s;
@@ -148,6 +146,8 @@ nav::after {
 }
 
 #nav-close {
+    position: absolute;
+    left: 1rem;
     top: 1rem;
 }
 
@@ -165,6 +165,7 @@ nav::after {
     font-weight: bold;
     width: fit-content;
     color: var(--color-base-content);
+    transition: text-shadow 0.25s;
 }
 
 .nav-item:hover {
@@ -175,29 +176,25 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    margin: 1rem;
 }
 
 #headline-title {
     color: var(--color-base-content);
     font-size: 5vh;
     font-weight: bold;
-    width: 100vw;
     text-align: center;
     margin: 0;
-    cursor: pointer;
     line-height: initial;
 
     text-shadow: 0 0 5px var(--color-base-content);
 }
 
 #header-settings {
-    position: absolute;
-    right: 1rem;
-
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 

@@ -3,6 +3,11 @@ init()
 function init() {
     setupLanguage();
     setupLanguageOptions();
+    loadTheme();
+    document.querySelector(".theme-controller").addEventListener("change", function() {
+        console.log(this);
+        safeTheme(this);
+    });
 }
 
 // toggleNav with optional parameter toggle to force a state
@@ -51,4 +56,17 @@ function setupLanguageOptions() {
 
     langSelect.value = localStorage.getItem("lang") || navigator.language.split("-")[0];
     langSelect.addEventListener("change", () => changeLanguage(langSelect.value));
+}
+
+function safeTheme(controller) {
+    localStorage.setItem("dark-mode", controller.checked);
+}
+
+function loadTheme() {
+    const darkMode = localStorage.getItem("dark-mode");
+    const themeControllers = document.getElementsByClassName("theme-controller");
+
+    for (const themeController of themeControllers) {
+        themeController.checked = darkMode === "true";
+    }
 }

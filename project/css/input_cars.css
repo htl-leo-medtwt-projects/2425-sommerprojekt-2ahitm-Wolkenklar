@@ -82,6 +82,7 @@ main {
     position: relative;
     width: 250px;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .manufacture-car-image {

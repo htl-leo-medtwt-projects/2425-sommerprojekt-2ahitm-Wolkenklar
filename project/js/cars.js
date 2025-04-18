@@ -1,6 +1,6 @@
 let manufactures = {}
 
-fetch('../../data/cars.json')
+fetch('../data/cars.json')
     .then(response => response.json())
     .then(data => {
         manufactures = data;
@@ -24,7 +24,7 @@ function setUpCars() {
         manufacture.models.forEach(car => {
             html += `
                     <div class="manufacture-car" id="manufacture-${manufacture.id}-car-${car.id}" onclick="window.location.href='configurator.html?manufacture=${manufacture.id}&car=${car.id}'">
-                        <img src="../../assets/img/thumbnails/${car.id}.png" alt="Car ${car.label}" class="manufacture-car-image">
+                        <img src="../assets/img/thumbnails/${car.id}.png" alt="Car ${car.label}" class="manufacture-car-image">
                         <h2 class="manufacture-car-name" id="manufacture-${manufacture.id}-car-${car.id}-name">${car.label}</h2>
                     </div>
             `

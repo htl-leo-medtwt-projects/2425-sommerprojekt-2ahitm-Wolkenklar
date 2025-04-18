@@ -23,25 +23,45 @@
             <div id="nav-open" class="nav-toggle" onclick="toggleNav()">
                 <i class="fas fa-bars"></i>
             </div>
+
             <h1 t-id="company-name" id="headline-title">Velox Custom</h1>
-            <label for="lang-select"></label>
-            <select id="lang-select">
-                <option value="en">English</option>
-            </select>
+
+            <div id="header-settings">
+                <label class="toggle text-base-content">
+                    <input type="checkbox" value="velox_dark" class="theme-controller"/>
+
+                    <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
+
+                    <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
+                </label>
+
+                <label for="lang-select"></label>
+                <select id="lang-select">
+                    <option value="en">English</option>
+                </select>
+            </div>
         </header>
-        <main>
-            <div class="popular-car" id="popular-car-1" onclick="window.location.href='pages/cars.html'">
-                <img src="assets/img/porsche_gt3.png" alt="Car 1" class="popular-car-image">
+        <main class="flex-row items-center justify-evenly">
+            <div class="popular-car" id="popular-car-1" onclick="window.location.href='pages/configurator.html?manufacture=4&car=3'">
+                <img src="assets/img/porsche_gt3.png" alt="Car 1" class="popular-car-image" id="tempCarImg">
                 <h2 class="popular-car-name" id="popular-car-1-name">Porsche GT3</h2>
             </div>
-            <div class="popular-car" id="popular-car-2" onclick="window.location.href='pages/cars.html'">
+            <div class="popular-car" id="popular-car-2" onclick="window.location.href='pages/configurator.html?manufacture=1&car=1'">
                 <img src="assets/img/bmw_m5_cs.png" alt="Car 2" class="popular-car-image">
                 <h2 class="popular-car-name" id="popular-car-2-name">BMW M5 CS</h2>
             </div>
-            <div class="popular-car" id="popular-car-3" onclick="window.location.href='pages/cars.html'">
+            <div class="popular-car" id="popular-car-3" onclick="window.location.href='pages/configurator.html?manufacture=3&car=2'">
                 <img src="assets/img/lexus_is.png" alt="Car 3" class="popular-car-image">
                 <h2 class="popular-car-name" id="popular-car-3-name">Lexus IS</h2>
             </div>
         </main>
     </body>
+    <script>
+        window.addEventListener('keydown', () => {
+            if (event.key === '#') {
+                const img = document.getElementById("tempCarImg");
+                img.src = img.src.includes("thumbnails/gt3.png") ? "assets/img/porsche_gt3.png" : "assets/img/thumbnails/gt3.png";
+            }
+        });
+    </script>
 </html>
