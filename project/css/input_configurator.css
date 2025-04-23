@@ -4,3 +4,19 @@
     root: ":root";
     logs: true;
 }
+
+.config-colors {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+}
+
+.config-color {
+    width: 30%;
+    aspect-ratio: 1 / 1;
+}

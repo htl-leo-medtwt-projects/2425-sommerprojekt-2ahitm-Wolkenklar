@@ -31,13 +31,46 @@
   {
     "label": "Porsche",
     "id": 4,
+    "colors": {
+        "red": {
+            "label": "Red",
+            "hex": "#FF0000"
+        },
+        "blue": {
+            "label": "Blue",
+            "hex": "#0000FF"
+        },
+        "green": {
+            "label": "Green",
+            "hex": "#00FF00"
+        }
+    },
     "models": [
       {
         "id": 3,
         "label": "Porsche 911 GT3",
         "year": 2022,
         "price": 161000,
-        "glbUrl": "../assets/models/porsche_911.glb"
+        "glbUrl": "../assets/models/cars/porsche_911.glb",
+        "mods": {
+          "paintParts": [
+            {
+              "name": "body",
+              "label": "Body",
+              "colors": ["red", "blue", "green"]
+            },
+            {
+              "name": "wheel_accent",
+              "label": "Wheel Accents",
+              "colors": ["red"]
+            },
+            {
+              "name": "interior",
+              "label": "Interior",
+              "colors": ["red", "blue"]
+            }
+          ]
+        }
       }
     ]
   }

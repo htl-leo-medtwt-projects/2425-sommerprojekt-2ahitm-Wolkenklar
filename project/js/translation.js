@@ -30,7 +30,16 @@ const translations = {
 }
 
 const carTranslations = {
-
+    "de": {
+        "config-body": "Karosserie",
+        "config-wheel_accent": "Radakzent",
+        "config-interior": "Innenraum",
+    },
+    "en": {
+        "config-body": "Body",
+        "config-wheel_accent": "Wheel Accent",
+        "config-interior": "Interior",
+    }
 }
 
 

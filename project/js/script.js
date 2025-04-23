@@ -5,7 +5,6 @@ function init() {
     setupLanguageOptions();
     loadTheme();
     document.querySelector(".theme-controller").addEventListener("change", function() {
-        console.log(this);
         safeTheme(this);
     });
 }
