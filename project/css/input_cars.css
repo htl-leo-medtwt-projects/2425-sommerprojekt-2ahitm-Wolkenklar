@@ -12,7 +12,7 @@ main {
     margin-top: 3vh;
 }
 
-#manufactureList {
+#manufacturerList {
     width: calc(100% - 4vw * 2);
     margin: 0 4vw;
     display: flex;
@@ -20,13 +20,13 @@ main {
     gap: 10px;
 }
 
-.manufacture {
+.manufacturer {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.manufacture-headline {
+.manufacturer-headline {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,34 +37,34 @@ main {
     transition: border 0.5s;
 }
 
-.manufacture-headline:hover {
+.manufacturer-headline:hover {
     border-top: 2px solid var(--color-accent);
     border-bottom: 2px solid var(--color-accent);
 }
 
-.manufacture-name {
+.manufacturer-name {
     font-size: 20px;
     font-weight: bold;
     margin: revert;
 }
 
-.manufacture-dropdown-icon {
+.manufacturer-dropdown-icon {
     font-size: 20px;
     transform: rotateZ(0deg);
     transition: transform 0.5s, color 0.5s;
 }
 
-.manufacture-headline:hover .manufacture-dropdown-icon {
+.manufacturer-headline:hover .manufacturer-dropdown-icon {
     color: var(--color-accent);
 }
 
-.manufacture-headline:hover .manufacture-dropdown-icon {
+.manufacturer-headline:hover .manufacturer-dropdown-icon {
     transform: rotateZ(90deg);
 }
 
 
 /* per default only cars image shown, on hover also show name*/
-.manufacture-cars {
+.manufacturer-cars {
     height: 0;
     overflow: hidden;
     transition: height 0.5s;
@@ -74,7 +74,7 @@ main {
     gap: 10px;
 }
 
-.manufacture-car {
+.manufacturer-car {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -85,12 +85,12 @@ main {
     cursor: pointer;
 }
 
-.manufacture-car-image {
+.manufacturer-car-image {
     width: 100%;
     transition: transform 0.3s ease-in-out;
 }
 
-.manufacture-car-name {
+.manufacturer-car-name {
     font-size: 0px;
     opacity: 0;
     white-space: nowrap;
@@ -99,11 +99,11 @@ main {
 }
 
 /* Hover Effect */
-.manufacture-car:hover .manufacture-car-image {
+.manufacturer-car:hover .manufacturer-car-image {
     transform: scale(1);
 }
 
-.manufacture-car:hover .manufacture-car-name {
+.manufacturer-car:hover .manufacturer-car-name {
     font-size: 24px;
     opacity: 1;
     transform: scale(0.8);

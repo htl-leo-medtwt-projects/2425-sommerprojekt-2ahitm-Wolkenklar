@@ -8,7 +8,7 @@
     "daisyui": "^5.0.11"
   },
   "scripts": {
-    "start": "http-server -p 8080",
+    "start": "http-server -p 8000",
     "build:css": "npm run build:css:style && npm run build:css:cars && npm run build:css:configurator",
     "build:css:style": "npx @tailwindcss/cli -i css/input_style.css -o ./css/style.css",
     "build:css:cars": "npx @tailwindcss/cli -i css/input_cars.css -o ./css/cars.css",

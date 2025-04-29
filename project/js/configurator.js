@@ -63,21 +63,21 @@ function animate() {
 
 const urlParams = new URLSearchParams(window.location.search);
 let carId = urlParams.get('car');
-let manufactureId = urlParams.get('manufacture');
+let manufacturerId = urlParams.get('manufacturer');
 
-if(!carId || !manufactureId) {
+if(!carId || !manufacturerId) {
     window.location.href = "cars.html";
 }
 
-let manufactures = {};
+let manufacturers = {};
 await fetch('../data/cars.json')
     .then(response => response.json())
     .then(data => {
-        manufactures = data;
+        manufacturers = data;
     });
 
-let manufacture = manufactures.find(m => m.id == manufactureId)
-let car = manufacture.models.find(c => c.id == carId);
+let manufacturer = manufacturers.find(m => m.id == manufacturerId)
+let car = manufacturer.models.find(c => c.id == carId);
 let glbUrl = car.glbUrl;
 loadModel(glbUrl);
 
@@ -150,11 +150,10 @@ mods.paintParts.forEach(paintPart => {
         <div id="config-${paintPart.name}" class="config-colors">
     `
         paintPart.colors.forEach(colorName => {
-            let color = manufacture.colors[colorName];
+            let color = manufacturer.colors[colorName];
             if (color) {
                 colorHtml += `
-                    <div class="config-color" id="config-${paintPart.name}-${colorName}" onclick="changeColor('${paintPart.name}', '${color.hex}')" style="background-color: ${color.hex}">
-                    </div>
+                    <div class="config-color" id="config-${paintPart.name}-${colorName}" onclick="changeColor('${paintPart.name}', '${color.hex}')" style="background-color: ${color.hex}"></div>
                 `;
             }
         });
