@@ -5,20 +5,27 @@
         <title>Velox Custom - Cars</title>
         <link rel="icon" href="../assets/img/logo.png" type="image/png">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/cars.css">
         <script src="https://kit.fontawesome.com/2c803d08b8.js" crossorigin="anonymous"></script>
+        <script src="../js/cars.js"></script>
         <script src="../js/translation.js" defer></script>
         <script src="../js/script.js" defer></script>
-        <script src="../js/cars.js" defer></script>
+
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+        <script src="https://unpkg.com/@barba/core" defer></script>
+        <script src="../js/transitions.js" defer></script>
     </head>
     <body>
+        <div id="transition-overlay">
+            <div class="transition-text">Loading...</div>
+        </div>
+
         <nav id="nav">
             <div id="nav-close" class="nav-toggle" onclick="toggleNav()">
                 <i class="fas fa-times"></i>
             </div>
             <div id="nav-items">
-                <a href="../index.html" t-id="nav-home" class="nav-item">Home</a>
-                <a href="cars.html" t-id="nav-cars" class="nav-item">Cars</a>
+                <a href="/index.html" t-id="nav-home" class="nav-item">Home</a>
+                <a href="/pages/cars.html" t-id="nav-cars" class="nav-item">Cars</a>
             </div>
         </nav>
         <header>
@@ -43,50 +50,13 @@
                 </select>
             </div>
         </header>
-        <main>
-            <div id="manufactureList" class="w-[calc(100% - 4vw * 2] m-[0vw_4vw] flex flex-col gap-2.5">
-                <div class="manufacture" id="manufacture-1" onclick="toggleManufactureDropdown(this)">
-                    <div class="manufacture-headline" id="manufacture-1-headline">
-                        <h2 class="manufacture-name" id="manufacture-1-name">BMW</h2>
-                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
-                    </div>
-                    <div class="manufacture-cars" id="manufacture-1-cars">
-                        <div class="manufacture-car" id="manufacture-1-car-1" onclick="window.location.href='car.html'">
-                            <img src="../../assets/img/bmw_m5_cs.png" alt="Car 1" class="manufacture-car-image">
-                            <h2 class="manufacture-car-name" id="manufacture-1-car-1-name">BMW M5 CS</h2>
-                        </div>
-                    </div>
+
+        <main data-barba="wrapper">
+            <div id="content" data-barba="container" data-barba-namespace="cars">
+                <link rel="stylesheet" href="../css/cars.css">
+                <div id="manufactureList" style="width: 100%" class="m-[0vw_4vw] flex flex-col gap-2.5">
                 </div>
-                <div class="manufacture" id="manufacture-2" onclick="toggleManufactureDropdown(this)">
-                    <div class="manufacture-headline" id="manufacture-2-headline">
-                        <h2 class="manufacture-name" id="manufacture-2-name">Lamborghini</h2>
-                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
-                    </div>
-                </div>
-                <div class="manufacture" id="manufacture-3" onclick="toggleManufactureDropdown(this)">
-                    <div class="manufacture-headline" id="manufacture-3-headline">
-                        <h2 class="manufacture-name" id="manufacture-3-name">Lexus</h2>
-                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
-                    </div>
-                    <div class="manufacture-cars" id="manufacture-2-cars">
-                        <div class="manufacture-car" id="manufacture-2-car-1" onclick="window.location.href='car.html'">
-                            <img src="../../assets/img/lexus_is.png" alt="Car 1" class="manufacture-car-image">
-                            <h2 class="manufacture-car-name" id="manufacture-2-car-1-name">Lexus IS</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="manufacture" id="manufacture-4" onclick="toggleManufactureDropdown(this);">
-                    <div class="manufacture-headline" id="manufacture-4-headline">
-                        <h2 class="manufacture-name" id="manufacture-4-name">Porsche</h2>
-                        <i class="fas fa-chevron-right manufacture-dropdown-icon"></i>
-                    </div>
-                    <div class="manufacture-cars" id="manufacture-3-cars">
-                        <div class="manufacture-car" id="manufacture-3-car-1" onclick="window.location.href='car.html'">
-                            <img src="../../assets/img/porsche_gt3.png" alt="Car 1" class="manufacture-car-image">
-                            <h2 class="manufacture-car-name" id="manufacture-3-car-1-name">Porsche GT3</h2>
-                        </div>
-                    </div>
-                </div>
+                <script>window.fetchCars()</script>
             </div>
         </main>
     </body>

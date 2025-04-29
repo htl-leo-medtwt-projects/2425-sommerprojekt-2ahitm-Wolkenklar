@@ -6,17 +6,26 @@
         <link rel="icon" href="assets/img/logo.png" type="image/png">
         <link rel="stylesheet" href="css/style.css">
         <script src="https://kit.fontawesome.com/2c803d08b8.js" crossorigin="anonymous"></script>
+        <script src="js/cars.js"></script>
         <script src="js/translation.js" defer></script>
         <script src="js/script.js" defer></script>
+
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+        <script src="https://unpkg.com/@barba/core" defer></script>
+        <script src="js/transitions.js" defer></script>
     </head>
     <body>
+        <div id="transition-overlay">
+            <div class="transition-text">Loading...</div>
+        </div>
+
         <nav id="nav">
             <div id="nav-close" class="nav-toggle" onclick="toggleNav()">
                 <i class="fas fa-times"></i>
             </div>
             <div id="nav-items">
-                <a href="index.html" t-id="nav-home" class="nav-item">Home</a>
-                <a href="pages/cars.html" t-id="nav-cars" class="nav-item">Cars</a>
+                <a href="/index.html" t-id="nav-home" class="nav-item">Home</a>
+                <a href="/pages/cars.html" t-id="nav-cars" class="nav-item">Cars</a>
             </div>
         </nav>
         <header>
@@ -41,18 +50,21 @@
                 </select>
             </div>
         </header>
-        <main class="flex-row items-center justify-evenly">
-            <div class="popular-car" id="popular-car-1" onclick="window.location.href='pages/configurator.html?manufacture=4&car=3'">
-                <img src="assets/img/porsche_gt3.png" alt="Car 1" class="popular-car-image" id="tempCarImg">
-                <h2 class="popular-car-name" id="popular-car-1-name">Porsche GT3</h2>
-            </div>
-            <div class="popular-car" id="popular-car-2" onclick="window.location.href='pages/configurator.html?manufacture=1&car=1'">
-                <img src="assets/img/bmw_m5_cs.png" alt="Car 2" class="popular-car-image">
-                <h2 class="popular-car-name" id="popular-car-2-name">BMW M5 CS</h2>
-            </div>
-            <div class="popular-car" id="popular-car-3" onclick="window.location.href='pages/configurator.html?manufacture=3&car=2'">
-                <img src="assets/img/lexus_is.png" alt="Car 3" class="popular-car-image">
-                <h2 class="popular-car-name" id="popular-car-3-name">Lexus IS</h2>
+
+        <main data-barba="wrapper">
+            <div class="flex-row items-center justify-evenly" id="content" data-barba="container" data-barba-namespace="home">
+                <div class="popular-car" id="popular-car-1" onclick="window.location.href='pages/configurator.html?manufacture=4&car=3'">
+                    <img src="assets/img/porsche_gt3.png" alt="Car 1" class="popular-car-image" id="tempCarImg">
+                    <h2 class="popular-car-name" id="popular-car-1-name">Porsche GT3</h2>
+                </div>
+                <div class="popular-car" id="popular-car-2" onclick="window.location.href='pages/configurator.html?manufacture=1&car=1'">
+                    <img src="assets/img/bmw_m5_cs.png" alt="Car 2" class="popular-car-image">
+                    <h2 class="popular-car-name" id="popular-car-2-name">BMW M5 CS</h2>
+                </div>
+                <div class="popular-car" id="popular-car-3" onclick="window.location.href='pages/configurator.html?manufacture=3&car=2'">
+                    <img src="assets/img/lexus_is.png" alt="Car 3" class="popular-car-image">
+                    <h2 class="popular-car-name" id="popular-car-3-name">Lexus IS</h2>
+                </div>
             </div>
         </main>
     </body>

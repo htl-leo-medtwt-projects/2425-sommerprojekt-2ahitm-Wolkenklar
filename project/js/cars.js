@@ -1,13 +1,13 @@
-let manufactures = {}
+function fetchCars() {
+    fetch('../data/cars.json')
+        .then(response => response.json())
+        .then(data => {
+            setUpCars(data);
+        });
+}
+window.initCars = fetchCars;
 
-fetch('../data/cars.json')
-    .then(response => response.json())
-    .then(data => {
-        manufactures = data;
-        setUpCars();
-    });
-
-function setUpCars() {
+function setUpCars(manufactures) {
     let manufactureList = document.getElementById('manufactureList');
     manufactureList.innerHTML = "";
     let html = "";
