@@ -12,16 +12,52 @@
     ]
   },
   {
-    "label": "Lamborghini",
+    "label": "Nissan",
     "id": 2,
+    "colors": {
+      "yellow": {
+        "label": "Yellow",
+        "hex": "#FFFF00"
+      },
+      "black": {
+        "label": "Black",
+        "hex": "#000000"
+      },
+      "white": {
+        "label": "White",
+        "hex": "#FFFFFF"
+      }
+    },
+    "models": [
+      {
+        "id": 2,
+        "label": "Nissan GT-R",
+        "year": 2017,
+        "price": 115000,
+        "glbUrl": "../assets/models/cars/gtr.glb",
+        "mods": {
+          "paintParts": [
+            {
+              "name": "body",
+              "label": "Body",
+              "colors": ["black", "white", "yellow"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lamborghini",
+    "id": 3,
     "models": []
   },
   {
     "label": "Lexus",
-    "id": 3,
+    "id": 4,
     "models": [
       {
-        "id": 2,
+        "id": 3,
         "label": "Lexus IS",
         "year": 2021,
         "price": 40000
@@ -30,7 +66,7 @@
   },
   {
     "label": "Porsche",
-    "id": 4,
+    "id": 5,
     "colors": {
         "red": {
             "label": "Red",
@@ -47,7 +83,7 @@
     },
     "models": [
       {
-        "id": 3,
+        "id": 4,
         "label": "Porsche 911 GT3",
         "year": 2022,
         "price": 161000,

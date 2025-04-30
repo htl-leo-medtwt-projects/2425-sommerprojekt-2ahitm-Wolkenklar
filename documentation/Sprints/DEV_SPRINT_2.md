@@ -1,4 +1,4 @@
-# UI/UX concept sprint
+# DEV-SPRINT 2
 
 **Name:** Simon Hofer  
 **Class:** 2AHITM  
