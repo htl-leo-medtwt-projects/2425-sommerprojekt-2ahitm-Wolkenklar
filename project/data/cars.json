@@ -44,6 +44,27 @@
             }
           ]
         }
+      },
+      {
+        "id": 6,
+        "label": "Nissan GT-R R34",
+        "year": 2002,
+        "price": 80000,
+        "glbUrl": "../assets/models/cars/r34.glb",
+        "mods": {
+          "paintParts": [
+            {
+              "name": "body",
+              "label": "Body",
+              "colors": ["black", "white", "yellow"]
+            },
+            {
+              "name": "calipers",
+              "label": "Wheel Calipers",
+              "colors": ["black", "yellow"]
+            }
+          ]
+        }
       }
     ]
   },

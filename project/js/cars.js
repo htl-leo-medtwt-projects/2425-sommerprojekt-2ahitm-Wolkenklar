@@ -1,4 +1,5 @@
 function fetchCars() {
+    console.log("fetching cars");
     fetch('../data/cars.json')
         .then(response => response.json())
         .then(data => {

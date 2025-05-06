@@ -1,9 +1,14 @@
 let transitionText = 'Loading...';
+let transitionHref = 'Index';
 
 document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
-    if (link && link.innerText) {
-        transitionText = link.innerText;
+    if (link) {
+        if(link.attributes["data-init"]) {
+            transitionHref = link.attributes["data-init"].value;
+        } else if(link.innerText) {
+            transitionText = link.innerText;
+        }
     }
 });
 
@@ -14,7 +19,8 @@ barba.init({
                 await pageTransitionIn();
             },
             async enter(data) {
-                window["init" + transitionText]?.()
+                console.log("enter", transitionHref);
+                window["init" + transitionHref]?.()
                 pageTransitionOut();
             }
         }

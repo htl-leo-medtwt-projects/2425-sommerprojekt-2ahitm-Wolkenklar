@@ -104,6 +104,28 @@ const observer = new ResizeObserver(entries => {
 });
 observer.observe(document.body);
 
+// Save image function e.g. saveImage('car.png');
+function saveImage(filename) {
+    // Temporarily set a solid background color for the scene
+    const originalBackground = scene.background;
+    scene.background = new THREE.Color(0xffffff); // White background
+
+    // Render the scene with the temporary background
+    renderer.render(scene, camera);
+
+    // Save the image
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = renderer.domElement.toDataURL('image/png');
+    link.click();
+    link.remove();
+
+    // Restore the original background
+    scene.background = originalBackground;
+}
+
+window.saveImage = saveImage;
+
 
 // Change color function e.g. changeColor('CarPaint', '#ff0000');
 function changeColor(materialName, color) {
