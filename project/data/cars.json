@@ -1,10 +1,10 @@
 [
   {
     "label": "BMW",
-    "id": 1,
+    "name": "bmw",
     "models": [
       {
-        "id": 1,
+        "name": "m5cs",
         "label": "BMW M5 CS",
         "year": 2021,
         "price": 142000
@@ -13,7 +13,7 @@
   },
   {
     "label": "Nissan",
-    "id": 2,
+    "name": "nissan",
     "colors": {
       "yellow": {
         "label": "Yellow",
@@ -30,7 +30,7 @@
     },
     "models": [
       {
-        "id": 2,
+        "name": "gtr",
         "label": "Nissan GT-R",
         "year": 2017,
         "price": 115000,
@@ -46,7 +46,7 @@
         }
       },
       {
-        "id": 6,
+        "name": "r34",
         "label": "Nissan GT-R R34",
         "year": 2002,
         "price": 80000,
@@ -64,21 +64,27 @@
               "colors": ["black", "yellow"]
             }
           ]
+        },
+        "maxMods": {
+          "paintParts": {
+            "body": 3,
+            "calipers": 2
+          }
         }
       }
     ]
   },
   {
     "label": "Lamborghini",
-    "id": 3,
+    "name": "lamborghini",
     "models": []
   },
   {
     "label": "Lexus",
-    "id": 4,
+    "name": "lexus",
     "models": [
       {
-        "id": 3,
+        "name": "lexusis",
         "label": "Lexus IS",
         "year": 2021,
         "price": 40000
@@ -87,7 +93,7 @@
   },
   {
     "label": "Porsche",
-    "id": 5,
+    "name": "porsche",
     "colors": {
         "red": {
             "label": "Red",
@@ -104,7 +110,7 @@
     },
     "models": [
       {
-        "id": 4,
+        "name": "gt3",
         "label": "Porsche 911 GT3",
         "year": 2022,
         "price": 161000,
@@ -119,7 +125,7 @@
             {
               "name": "wheel_accent",
               "label": "Wheel Accents",
-              "colors": ["red"]
+              "colors": ["red", "green"]
             },
             {
               "name": "interior",
@@ -127,6 +133,11 @@
               "colors": ["red", "blue"]
             }
           ]
+        },
+        "maxMods": {
+          "paintParts.body": 2,
+          "paintParts.wheel_accent": 1,
+          "paintParts.interior": 1
         }
       }
     ]

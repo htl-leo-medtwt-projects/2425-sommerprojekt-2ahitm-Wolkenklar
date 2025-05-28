@@ -1,12 +1,20 @@
-let transitionText = 'Loading...';
+let transitionText = 'Home';
 let transitionHref = 'Index';
 
 document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href]');
+    const link = e.target.closest('div.manufacturer-car') || e.target.closest('a[href]');
     if (link) {
         if(link.attributes["data-init"]) {
             transitionHref = link.attributes["data-init"].value;
-        } else if(link.innerText) {
+        } else if (link.classList.contains('manufacturer-car')) {
+            transitionHref = "Configurator";
+        } else {
+            transitionHref = link.href.split('/').pop().split('.')[0];
+        }
+
+        if(link.classList.contains('manufacturer-car')) {
+            transitionText = link.querySelector('.manufacturer-car-name').innerText;
+        } else {
             transitionText = link.innerText;
         }
     }
@@ -19,7 +27,7 @@ barba.init({
                 await pageTransitionIn();
             },
             async enter(data) {
-                console.log("enter", transitionHref);
+                console.log(transitionHref)
                 window["init" + transitionHref]?.()
                 pageTransitionOut();
             }

@@ -14,19 +14,21 @@ function setUpCars(manufacturers) {
     let html = "";
     manufacturers.forEach(manufacturer => {
         html += `
-            <div class="manufacturer" id="manufacturer-${manufacturer.id}" onclick="togglemanufacturerDropdown(this)">
-                <div class="manufacturer-headline" id="manufacturer-${manufacturer.id}-headline">
-                    <h2 class="manufacturer-name" id="manufacturer-${manufacturer.id}-name">${manufacturer.label}</h2>
+            <div class="manufacturer" id="manufacturer-${manufacturer.name}" onclick="toggleManufacturerDropdown(this)">
+                <div class="manufacturer-headline" id="manufacturer-${manufacturer.name}-headline">
+                    <h2 class="manufacturer-name" id="manufacturer-${manufacturer.name}-name">${manufacturer.label}</h2>
                     <i class="fas fa-chevron-right manufacturer-dropdown-icon"></i>
                 </div>
-                <div class="manufacturer-cars" id="manufacturer-${manufacturer.id}-cars">
+                <div class="manufacturer-cars" id="manufacturer-${manufacturer.name}-cars">
         `;
 
         manufacturer.models.forEach(car => {
+            console.log(car)
             html += `
-                    <div class="manufacturer-car" id="manufacturer-${manufacturer.id}-car-${car.id}" onclick="window.location.href='configurator.html?manufacturer=${manufacturer.id}&car=${car.id}'">
-                        <img src="../assets/img/thumbnails/${car.id}.png" alt="Car ${car.label}" class="manufacturer-car-image">
-                        <h2 class="manufacturer-car-name" id="manufacturer-${manufacturer.id}-car-${car.id}-name">${car.label}</h2>
+                    <div class="manufacturer-car" id="manufacturer-${manufacturer.name}-car-${car.name}">
+                        <a href="configurator.html?manufacturer=${manufacturer.name}&car=${car.name}" class="manufacturer-car-link" data-init="Configurator"></a>
+                        <img src="../assets/img/thumbnails/${car.name}.png" alt="Car ${car.label}" class="manufacturer-car-image">
+                        <h2 class="manufacturer-car-name" id="manufacturer-${manufacturer.name}-car-${car.name}-name">${car.label}</h2>
                     </div>
             `
         })
@@ -40,7 +42,7 @@ function setUpCars(manufacturers) {
     manufacturerList.innerHTML = html;
 }
 
-function togglemanufacturerDropdown(parentElement) {
+function toggleManufacturerDropdown(parentElement) {
     // manufacturerCars is a div element
     let manufacturerCars = parentElement.querySelector('.manufacturer-cars');
     let dropdownIcon = parentElement.querySelector('.manufacturer-dropdown-icon');
