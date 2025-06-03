@@ -129,9 +129,8 @@ async function setupConfigurator() {
 
 
     // Change color function e.g. changeColor('CarPaint', '#ff0000');
-    function changeColor(materialName, color, colorIndex) {
+    function changeColor(materialName, color) {
         if (carModel) {
-            config.paintParts[materialName] = colorIndex;
             carModel.traverse((child) => {
                 if (child.isMesh && child.material.name === materialName) {
                     child.material.color.set(color);
@@ -150,15 +149,6 @@ async function setupConfigurator() {
                     child.visible = visible;
                 }
             });
-
-            let conflictingParts = car.mods.addons.find(p => p.name === partName).conflictingParts;
-            if (conflictingParts) {
-                carModel.traverse((child) => {
-                    if (child.isMesh && conflictingParts.includes(child.name)) {
-                        child.visible = !visible;
-                    }
-                });
-            }
         }
     }
 
@@ -166,7 +156,7 @@ async function setupConfigurator() {
 
     // setup mods
     let mods = car.mods;
-    let colorList = document.getElementById("config-list");
+    let configList = document.getElementById("config-list");
     let colorHtml = "";
     mods.paintParts.forEach(paintPart => {
         colorHtml += `
@@ -185,131 +175,41 @@ async function setupConfigurator() {
             </div>
         `;
     });
-    colorList.innerHTML = colorHtml;
+    configList.innerHTML = colorHtml;
 
-
-    function encodeConfig(config, maxConfigs) {
-        const base62chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-        for (const key in config) {
-            if (!(key in maxConfigs)) {
-                return;
-            }
-        }
-
-        let bitPos = 0;
-        let value = 0;
-
-        for (const key in maxConfigs) {
-            if (!(key in config)) continue;
-
-            let max = maxConfigs[key];
-            let bits = Math.ceil(Math.log2(max + 1));
-            let val = config[key];
-
-            if (max === 1) {
-                val = val ? 1 : 0;
-            } else {
-                if (typeof val !== 'number' || val > max) return;
-            }
-
-            value |= (val & ((1 << bits) - 1)) << bitPos;
-            bitPos += bits;
-        }
-
-        let encoded = '';
-        do {
-            encoded = base62chars[value % 62] + encoded;
-            value = Math.floor(value / 62);
-        } while (value > 0);
-
-        return encoded;
+    // setup body parts
+    let bodyPartsHtml = "<br>";
+    if(mods.bodyParts) {
+        mods.bodyParts.forEach(part => {
+            toggleBodyPart(part.name, false);
+            bodyPartsHtml += `
+                <div class="config-body-part" id="config-${part.name}">
+                    <h2 class="config-name">${part.label}</h2>
+                    <input type="checkbox" id="config-${part.name}-checkbox" class="config-checkbox" onclick="toggleBodyPart('${part.name}', this.checked)">
+                </div>
+            `;
+        });
     }
+    configList.innerHTML += bodyPartsHtml;
 
-    function decodeConfig(code, maxConfigs) {
-        const base62chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-        let value = 0;
-        for (let i = 0; i < code.length; i++) {
-            const index = base62chars.indexOf(code[i]);
-            if (index === -1) return null;
-            value = value * 62 + index;
-        }
-
-        const config = {};
-        let bitPos = 0;
-
-        for (const key in maxConfigs) {
-            const max = maxConfigs[key];
-            const bits = Math.ceil(Math.log2(max + 1));
-            const mask = (1 << bits) - 1;
-
-            const raw = (value >> bitPos) & mask;
-
-            if (max === 1) {
-                config[key] = !!raw;
-            } else {
-                config[key] = raw;
-            }
-
-            bitPos += bits;
-        }
-
-        return config;
-    }
-
-
-    let maxConfig = car.maxMods
-    let config = maxConfig;
-    console.log(config)
-
-    function clickEncode() {
-        console.log(config, maxConfig);
-        let encoded = encodeConfig(config, maxConfig);
-        console.log(encoded)
-        if (encoded) {
-            alert("Code: " + encoded);
-        } else {
-            console.error("Encoding failed");
-        }
-    }
-
-    window.clickEncode = clickEncode;
-
-    function clickDecode() {
-        let code = prompt("Enter code to decode:");
-        if (code) {
-            let decoded = decodeConfig(code, maxConfig);
-            if (decoded) {
-                config = decoded;
-                setUpConfig();
-            } else {
-                alert("Decoding failed");
-            }
-        }
-    }
-
-    window.clickDecode = clickDecode;
-
-    function setUpConfig() {
-        if(mods.paintParts) {
-            mods.paintParts.forEach(paintPart => {
-                let colorIndex = config.paintParts[paintPart.name];
-                if (colorIndex !== undefined) {
-                    changeColor(paintPart.name, paintPart.colors[colorIndex].hex, colorIndex);
-                }
-            });
-        }
-
-        if(mods.bodyParts) {
-            mods.bodyParts.forEach(bodyPart => {
-                let visible = config.bodyParts[bodyPart.name];
-                toggleBodyPart(bodyPart.name, visible);
-            });
-        }
-    }
-
-    window.setUpConfig = setUpConfig;
+    // add technical data
+    let technicalData = document.getElementById("technical-data");
+    let technicalDataHtml = `
+        <h2 class="technical-data-title" t-id="technical-data-title">Technical Data</h2>
+        <div class="technical-data-content">
+            <p><strong t-id="technical-data-year">Year</strong><strong>:</strong> ${car.data.year}</p>
+            <p><strong t-id="technical-data-price">Price</strong><strong>:</strong> ${car.data.price}€</p>
+            <p><strong t-id="technical-data-weight">Weight</strong><strong>:</strong> ${car.data.weight}kg</p>
+            <p><strong t-id="technical-data-top-speed">Top Speed</strong><strong>:</strong> ${car.data.topSpeed}km/h</p>
+            
+            <p><strong t-id="technical-data-engine">Engine</strong><strong>:</strong> ${car.data.engine.label}</p>
+            <p><strong t-id="technical-data-horsepower">Horsepower</strong><strong>:</strong> ${car.data.engine.horsepower}</p>
+            <p><strong t-id="technical-data-torque">Torque</strong><strong>:</strong> ${car.data.engine.torque} Nm</p>
+            <p><strong t-id="technical-data-acceleration">0-100 km/h</strong><strong>:</strong> ${car.data.engine.acceleration} s</p>
+            
+        </div>
+    `;
+    technicalData.innerHTML = technicalDataHtml;
 }
 
 window.initConfigurator = setupConfigurator;

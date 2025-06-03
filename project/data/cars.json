@@ -64,12 +64,6 @@
               "colors": ["black", "yellow"]
             }
           ]
-        },
-        "maxMods": {
-          "paintParts": {
-            "body": 3,
-            "calipers": 2
-          }
         }
       }
     ]
@@ -78,18 +72,6 @@
     "label": "Lamborghini",
     "name": "lamborghini",
     "models": []
-  },
-  {
-    "label": "Lexus",
-    "name": "lexus",
-    "models": [
-      {
-        "name": "lexusis",
-        "label": "Lexus IS",
-        "year": 2021,
-        "price": 40000
-      }
-    ]
   },
   {
     "label": "Porsche",
@@ -112,8 +94,18 @@
       {
         "name": "gt3",
         "label": "Porsche 911 GT3",
-        "year": 2022,
-        "price": 161000,
+        "data": {
+          "year": 2022,
+          "engine": {
+            "label": "4.0L Flat-6",
+            "horsepower": 502,
+            "torque": 460,
+            "acceleration": "3.4"
+          },
+          "price": 162000,
+          "topSpeed": 319,
+          "weight": 1435
+        },
         "glbUrl": "../assets/models/cars/porsche_911.glb",
         "mods": {
           "paintParts": [
@@ -132,12 +124,13 @@
               "label": "Interior",
               "colors": ["red", "blue"]
             }
+          ],
+          "bodyParts": [
+            {
+              "name": "spoiler",
+              "label": "Spoiler"
+            }
           ]
-        },
-        "maxMods": {
-          "paintParts.body": 2,
-          "paintParts.wheel_accent": 1,
-          "paintParts.interior": 1
         }
       }
     ]
